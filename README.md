@@ -1,10 +1,4 @@
 # sentinel
 
-<img width="572" height="212" alt="ascii-art-text" src="https://github.com/user-attachments/assets/06740b4a-6767-432b-80e8-07270d4c3d34" />
+<img width="921" height="281" alt="image" src="https://github.com/user-attachments/assets/ed78bf0e-815a-48cb-b22a-026c5af17b2d" />
 
-                
-                                                                   
-                                                                   
-                                                                   
-                                                                   
-                                                                   

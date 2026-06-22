@@ -15,44 +15,44 @@
 </p>
 
 <p align="center">
-  Enterprise-grade network discovery, analysis and monitoring.
+  Enterprise-Grade Netzwerkanalyse und Überwachung.
 </p>
 
 ---
 
-## Overview
+## Übersicht
 
-Sentinel is a high-performance network analysis platform built to provide comprehensive visibility across modern network environments.
+**Sentinel** ist eine leistungsstarke Plattform zur Analyse, Überwachung und Untersuchung moderner Netzwerkinfrastrukturen.
 
-The platform combines host discovery, service enumeration, traffic intelligence, and continuous monitoring capabilities into a unified command-line experience. Designed with performance and extensibility in mind, Sentinel enables security teams, infrastructure engineers, and researchers to efficiently understand, assess, and monitor networked systems at scale.
-
----
-
-## Core Capabilities
-
-### Asset Discovery
-
-Identify active hosts and network-connected devices across local and remote environments.
-
-### Service Intelligence
-
-Detect exposed services, analyze configurations, and gather contextual information about network assets.
-
-### Network Monitoring
-
-Continuously observe network activity and infrastructure changes in real time.
-
-### Traffic Analysis
-
-Inspect communication patterns to uncover anomalies, dependencies, and operational insights.
-
-### Extensible Framework
-
-Modular architecture allows seamless integration of custom analysis engines and data sources.
+Die Anwendung vereint Host-Erkennung, Service-Analyse, Netzwerk-Monitoring und intelligente Datenauswertung in einer einzigen, effizienten Umgebung. Sentinel wurde entwickelt, um Sicherheitsanalysten, Netzwerkadministratoren und Forschungsteams dabei zu unterstützen, komplexe Netzwerklandschaften transparent und nachvollziehbar zu machen.
 
 ---
 
-## Architecture
+## Hauptfunktionen
+
+### Netzwerk-Erkennung
+
+Identifizierung aktiver Hosts, Geräte und Netzwerksegmente innerhalb lokaler und verteilter Infrastrukturen.
+
+### Service-Analyse
+
+Erkennung und Analyse verfügbarer Dienste sowie Sammlung relevanter Metadaten für eine bessere Transparenz.
+
+### Echtzeit-Überwachung
+
+Kontinuierliche Beobachtung von Netzwerkaktivitäten und Infrastrukturänderungen.
+
+### Traffic-Analyse
+
+Auswertung von Kommunikationsmustern zur Erkennung von Auffälligkeiten, Abhängigkeiten und Betriebsinformationen.
+
+### Erweiterbare Architektur
+
+Modulares Framework zur Integration individueller Analyse- und Monitoring-Komponenten.
+
+---
+
+## Architektur
 
 ```text
                     ┌─────────────────┐
@@ -63,14 +63,14 @@ Modular architecture allows seamless integration of custom analysis engines and 
           │                  │                  │
           ▼                  ▼                  ▼
 
-   Discovery Engine   Analysis Engine   Monitoring Engine
+     Discovery        Analyse-Engine     Monitoring
 
           │                  │                  │
           └──────────────────┼──────────────────┘
                              │
                              ▼
 
-                     Intelligence Layer
+                    Intelligence Layer
 
                              │
                              ▼
@@ -83,14 +83,14 @@ Modular architecture allows seamless integration of custom analysis engines and 
 ## Installation
 
 ```bash
-git clone https://github.com/<organization>/sentinel.git
+git clone https://github.com/<organisation>/sentinel.git
 
 cd sentinel
 ```
 
 ---
 
-## Example Workflow
+## Beispiel
 
 ```bash
 sentinel discover 10.0.0.0/24
@@ -102,45 +102,45 @@ sentinel monitor --live
 
 ---
 
-## Design Principles
+## Grundprinzipien
 
-* Performance First
-* Minimal Operational Overhead
-* Modular Architecture
-* Automation Friendly
-* Security Focused
-* Scalable by Design
+* Hohe Performance
+* Minimaler Ressourcenverbrauch
+* Modulare Architektur
+* Automatisierungsfreundlich
+* Sicherheitsorientiertes Design
+* Skalierbarkeit
 
 ---
 
 ## Roadmap
 
-| Status  | Feature                          |
+| Status  | Funktion                         |
 | ------- | -------------------------------- |
-| Planned | Distributed Scanning             |
-| Planned | Threat Intelligence Integrations |
-| Planned | Advanced Traffic Analytics       |
-| Planned | Interactive Dashboard            |
-| Planned | Automated Reporting Pipeline     |
+| Geplant | Verteilte Scan-Engine            |
+| Geplant | Threat-Intelligence-Integration  |
+| Geplant | Erweiterte Traffic-Analysen      |
+| Geplant | Interaktives Dashboard           |
+| Geplant | Automatisierte Berichterstellung |
 
 ---
 
-## Contributing
+## Mitwirken
 
-We welcome contributions from the community.
+Beiträge aus der Community sind willkommen.
 
-For feature requests, bug reports, and development discussions, please open an issue before submitting significant changes.
+Bitte eröffnen Sie zunächst ein Issue, bevor größere Änderungen oder neue Funktionen vorgeschlagen werden.
 
 ---
 
-## License
+## Lizenz
 
-This project is released under the MIT License.
+Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.
 
 ---
 
 <p align="center">
-  Observe the Network.<br>
-  Understand the Infrastructure.<br>
-  Act with Confidence.
+  Netzwerk verstehen.<br>
+  Infrastruktur analysieren.<br>
+  Fundierte Entscheidungen treffen.
 </p>

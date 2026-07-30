@@ -1,0 +1,6 @@
+# BPS SH hedef dosyası
+127.0.0.1
+192.0.2.10
+192.0.2.20-192.0.2.25
+198.51.100.0/30
+server.example.local

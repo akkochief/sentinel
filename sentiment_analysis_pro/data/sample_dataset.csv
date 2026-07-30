@@ -1,0 +1,56 @@
+text,label
+"Bu ürün gerçekten harika, çok memnun kaldım!",positive
+"Kargo çok hızlı geldi, teşekkürler.",positive
+"Kaliteli malzeme, tavsiye ederim.",positive
+"Muhteşem bir deneyimdi, tekrar alışveriş yapacağım.",positive
+"Fiyatına göre gayet iyi bir ürün.",positive
+"Müşteri hizmetleri çok ilgiliydi, teşekkürler.",positive
+"Beklediğimden çok daha güzel çıktı.",positive
+"Ambalaj çok özenliydi, ürün sağlam geldi.",positive
+"Kesinlikle tavsiye ederim, harika bir alışveriş oldu.",positive
+"Kullanımı çok kolay ve pratik.",positive
+"Fiyat performans açısından mükemmel.",positive
+"Çok şık ve kaliteli bir ürün, bayıldım.",positive
+"Tam istediğim gibi, harika bir hediye oldu.",positive
+"Renkleri canlı, dokusu yumuşak, çok memnunum.",positive
+"Beklentimin üzerinde bir performans sundu.",positive
+"This product is amazing, I love it!",positive
+"Great customer service, very helpful staff.",positive
+"Fast shipping and excellent quality.",positive
+"I'm really satisfied with this purchase.",positive
+"Absolutely wonderful experience, highly recommend.",positive
+"Ürün berbat, hiç memnun kalmadım.",negative
+"Kargo çok geç geldi, çok sinir bozucu.",negative
+"Kalitesiz malzeme, param boşa gitti.",negative
+"Rezalet bir deneyimdi, bir daha almam.",negative
+"Fiyatına göre çok kötü bir ürün.",negative
+"Müşteri hizmetleri çok ilgisizdi, hayal kırıklığı yaşadım.",negative
+"Beklediğimden çok daha kötü çıktı.",negative
+"Ambalaj yırtılmış, ürün kırık geldi.",negative
+"Kesinlikle tavsiye etmiyorum, berbat bir alışverişti.",negative
+"Kullanımı çok zor ve karmaşık.",negative
+"Fiyat performans açısından çok yetersiz.",negative
+"Çok ucuz ve kalitesiz görünüyor, hayal kırıklığı.",negative
+"Hiç istediğim gibi değil, kötü bir hediye oldu.",negative
+"Renkleri soluk, dokusu sert, hiç memnun değilim.",negative
+"Beklentimin çok altında bir performans sundu.",negative
+"This product is terrible, I hate it!",negative
+"Poor customer service, very rude staff.",negative
+"Slow shipping and bad quality.",negative
+"I'm really disappointed with this purchase.",negative
+"Absolutely horrible experience, do not recommend.",negative
+"Ürün bekleneni verdi, ne iyi ne kötü.",neutral
+"Kargo zamanında geldi, normal bir hızdaydı.",neutral
+"Standart bir ürün, fazla bir beklentim yoktu.",neutral
+"Fiyatı ortalama, kalitesi de ortalama.",neutral
+"Müşteri hizmetleriyle kısa bir görüşme yaptım.",neutral
+"Ürün açıklamayla birebir aynıydı.",neutral
+"Kutudan çıkardım, kuruldum, çalışıyor.",neutral
+"Ambalaj standarttı, özel bir şey yoktu.",neutral
+"Ne memnun ne de şikayetçiyim.",neutral
+"Kullanımı ortalama, alışması biraz zaman aldı.",neutral
+"The product arrived as described.",neutral
+"Shipping took the usual amount of time.",neutral
+"It's an average product, nothing special.",neutral
+"Customer service answered my basic questions.",neutral
+"The item works as expected, nothing more.",neutral

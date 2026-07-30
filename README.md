@@ -1,145 +1,179 @@
-# Sentinel
+# BPS SH
 
-<p align="center">
-```text
-   _____            __  _            __
-  / ___/___  ____  / /_(_)___  ___  / /
-  \__ \/ _ \/ __ \/ __/ / __ \/ _ \/ /
- ___/ /  __/ / / / /_/ / / / /  __/ /
-/____/\___/_/ /_/\__/_/_/ /_/\___/_/
+BPS SH; Linux, Windows Git Bash ve WSL üzerinde çalışan, ana kodu tamamen
+`bps.sh` olan eşzamanlı TCP Connect port tarayıcıdır.
 
-        Network Analysis Platform
-```
+> Yalnızca sahibi olduğunuz veya açık izin aldığınız sistemleri tarayın.
 
-</p>
+## Dosyalar
 
-<p align="center">
-  Enterprise-Grade Netzwerkanalyse und Überwachung.
-</p>
+- `bps.sh`: Ana ve çalıştırılabilir tarayıcı kodu
+- `run-windows.bat`: Windows'ta Git Bash üzerinden başlatıcı
+- `targets.example.txt`: Hedef dosyası örneği
+- `tests/test_bps.sh`: Shell birim ve yerel entegrasyon testleri
 
----
+## Gereksinimler
 
-## Übersicht
+Zorunlu:
 
-**Sentinel** ist eine leistungsstarke Plattform zur Analyse, Überwachung und Untersuchung moderner Netzwerkinfrastrukturen.
+- Bash 4.3+
+- `timeout`, `awk`, `sort`, `sed`, `tr`, `cut`, `mktemp`, `date`
 
-Die Anwendung vereint Host-Erkennung, Service-Analyse, Netzwerk-Monitoring und intelligente Datenauswertung in einer einzigen, effizienten Umgebung. Sentinel wurde entwickelt, um Sicherheitsanalysten, Netzwerkadministratoren und Forschungsteams dabei zu unterstützen, komplexe Netzwerklandschaften transparent und nachvollziehbar zu machen.
+İsteğe bağlı:
 
----
+- `curl`: `--http-info` için
+- `openssl`: `--tls-info` için
+- `getent` veya `nslookup`: `--reverse-dns` için
 
-## Hauptfunktionen
+Linux dağıtımlarında temel araçlar genellikle kurulu gelir. Windows'ta en kolay
+yol güncel Git for Windows/Git Bash kullanmaktır.
 
-### Netzwerk-Erkennung
-
-Identifizierung aktiver Hosts, Geräte und Netzwerksegmente innerhalb lokaler und verteilter Infrastrukturen.
-
-### Service-Analyse
-
-Erkennung und Analyse verfügbarer Dienste sowie Sammlung relevanter Metadaten für eine bessere Transparenz.
-
-### Echtzeit-Überwachung
-
-Kontinuierliche Beobachtung von Netzwerkaktivitäten und Infrastrukturänderungen.
-
-### Traffic-Analyse
-
-Auswertung von Kommunikationsmustern zur Erkennung von Auffälligkeiten, Abhängigkeiten und Betriebsinformationen.
-
-### Erweiterbare Architektur
-
-Modulares Framework zur Integration individueller Analyse- und Monitoring-Komponenten.
-
----
-
-## Architektur
-
-```text
-                    ┌─────────────────┐
-                    │    Sentinel     │
-                    └────────┬────────┘
-                             │
-          ┌──────────────────┼──────────────────┐
-          │                  │                  │
-          ▼                  ▼                  ▼
-
-     Discovery        Analyse-Engine     Monitoring
-
-          │                  │                  │
-          └──────────────────┼──────────────────┘
-                             │
-                             ▼
-
-                    Intelligence Layer
-
-                             │
-                             ▼
-
-                       Reporting API
-```
-
----
-
-## Installation
+## Linux
 
 ```bash
-git clone https://github.com/<organisation>/sentinel.git
-
-cd sentinel
+chmod +x bps.sh
+./bps.sh 127.0.0.1
 ```
 
----
-
-## Beispiel
+Sistem genelinde komut olarak kullanmak isterseniz:
 
 ```bash
-sentinel discover 10.0.0.0/24
-
-sentinel analyze 10.0.0.15
-
-sentinel monitor --live
+sudo install -m 0755 bps.sh /usr/local/bin/bps
+bps 127.0.0.1
 ```
 
----
+## Windows
 
-## Grundprinzipien
+Önce Git for Windows kurun. Ardından ZIP içindeki klasörde:
 
-* Hohe Performance
-* Minimaler Ressourcenverbrauch
-* Modulare Architektur
-* Automatisierungsfreundlich
-* Sicherheitsorientiertes Design
-* Skalierbarkeit
+```bat
+run-windows.bat 127.0.0.1 -p 1-1000
+```
 
----
+Git Bash terminalinden doğrudan:
 
-## Roadmap
+```bash
+./bps.sh 127.0.0.1 -p 1-1000
+```
 
-| Status  | Funktion                         |
-| ------- | -------------------------------- |
-| Geplant | Verteilte Scan-Engine            |
-| Geplant | Threat-Intelligence-Integration  |
-| Geplant | Erweiterte Traffic-Analysen      |
-| Geplant | Interaktives Dashboard           |
-| Geplant | Automatisierte Berichterstellung |
+`.sh` dosyası CMD veya PowerShell tarafından doğrudan çalıştırılamaz.
+`run-windows.bat`, Git Bash'i bulup `bps.sh` dosyasını çalıştırır.
 
----
+WSL kullanıyorsanız ZIP'i WSL erişimli bir klasöre çıkarıp:
 
-## Mitwirken
+```bash
+bash bps.sh 127.0.0.1
+```
 
-Beiträge aus der Community sind willkommen.
+## Hedef biçimleri
 
-Bitte eröffnen Sie zunächst ein Issue, bevor größere Änderungen oder neue Funktionen vorgeschlagen werden.
+```bash
+./bps.sh 192.168.1.10
+./bps.sh 192.168.1.10,192.168.1.20
+./bps.sh 192.168.1.10-192.168.1.30
+./bps.sh 192.168.1.0/24
+./bps.sh server.example.local
+./bps.sh --targets-file targets.example.txt
+```
 
----
+Shell sürümünde tek IPv6 adresi denenebilir; IPv6 CIDR genişletme desteklenmez.
 
-## Lizenz
+## Port seçimi
 
-Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.
+```bash
+./bps.sh 192.168.1.10 -p 22,80,443,8000-8100
+./bps.sh 192.168.1.10 -p full
+./bps.sh 192.168.1.10 -p 1-10000 --exclude-ports 135,139,445
+```
 
----
+Preset'ler:
 
-<p align="center">
-  Netzwerk verstehen.<br>
-  Infrastruktur analysieren.<br>
-  Fundierte Entscheidungen treffen.
-</p>
+| Preset | İçerik |
+|---|---|
+| `common` | Yaygın TCP portları |
+| `web` | HTTP/HTTPS ve web geliştirme portları |
+| `database` | SQL, NoSQL, cache ve mesaj kuyruğu |
+| `remote` | SSH, Telnet, RDP, VNC ve WinRM |
+| `mail` | SMTP, POP3 ve IMAP |
+| `fileshare` | FTP, SMB, NFS ve Rsync |
+| `devops` | Docker, Kubernetes, Git ve gözlemleme |
+| `full` | `1-65535` |
+
+## Hız, eşzamanlılık ve retry
+
+```bash
+./bps.sh 192.168.1.10 -p full \
+  --concurrency 200 \
+  --rate 500 \
+  --timeout 0.6 \
+  --retries 1 \
+  --progress 2
+```
+
+- `--concurrency`: Aynı anda çalışan tarama işi.
+- `--rate`: Saniyede başlatılan azami iş; `0` sınırsızdır.
+- `--timeout`: TCP bağlantı zaman aşımı.
+- `--retries`: Timeout sonuçlarını en fazla üç kez yeniden dener.
+- `--progress`: Belirtilen saniye aralığında ilerleme verir.
+
+## Banner, HTTP ve TLS
+
+```bash
+./bps.sh server.local -p common --banner
+./bps.sh web.local -p web --http-info --tls-info
+./bps.sh 192.168.1.10 -p 1-10000 --http-info --probe-all-http
+```
+
+- `--banner`, açık bağlantıda veri göndermeden bir satır bekler.
+- `--http-info`, açık web portuna HTTP `HEAD /` gönderir ve durum, `Server`,
+  `Location` alanlarını alır.
+- `--tls-info`, bilinen TLS portlarında TLS sürümü, cipher ve sertifikanın
+  SHA-256 parmak izini alır.
+- `--probe-all-http`, HTTP kontrolünü tüm açık portlarda dener.
+
+## JSON, CSV ve TXT
+
+```bash
+./bps.sh 192.168.1.10 -p common \
+  --banner \
+  --http-info \
+  --tls-info \
+  --json result.json \
+  --csv result.csv \
+  --txt result.txt
+```
+
+Varsayılan olarak raporlarda yalnızca açık portlar bulunur.
+`--include-closed`, kapalı ve filtreli sonuçları da konsola ve dosyalara ekler.
+
+## CI kullanımı
+
+```bash
+./bps.sh 127.0.0.1 -p 22,3306,6379 --fail-on-open --quiet
+```
+
+Çıkış kodları:
+
+| Kod | Anlam |
+|---:|---|
+| `0` | Tarama tamamlandı |
+| `2` | Komut/giriş/bağımlılık hatası |
+| `10` | `--fail-on-open` ile açık port bulundu |
+| `130` | Ctrl+C ile durduruldu |
+
+## Test
+
+```bash
+bash -n bps.sh
+bash tests/test_bps.sh
+```
+
+Entegrasyon testi yalnızca `127.0.0.1` üzerinde geçici HTTP sunucusu kullanır.
+
+## Sınırlamalar
+
+- TCP Connect taraması yapar; SYN/raw-socket ve gizleme özellikleri yoktur.
+- UDP taraması yoktur.
+- Shell ve `/dev/tcp` yapısı nedeniyle Python sürümünden daha yavaş olabilir.
+- Windows'ta CMD yerine Git Bash veya WSL gerekir.
+- Servis adı port numarasından tahmindir; kesin ürün/sürüm tespiti değildir.
